@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+   {% block title %}
+   Club-List of all members
+   {% endblock %}
+
+    {%block content%} 
+    <div class="mycard">
+    <h1>All Members</h1>
+    <ul>
+        {% for x in mymembers %}
+
+        <li onclick="window.location = 'details/{{ x.id }}'">{{ x.ename }} {{ x.empno }}</li>
+        {% comment "" %}     <li> <a href="details/{{x.id}}">  {{x.empno}} {{x.ename}} {{x.phone}}   </a>        </li>{% endcomment %}   
+        {% endfor %}
+    </ul>
+</div>  
+    {% endblock %}

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include "mymenu.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+    {% for x in fruits %}
+    <h1>{{ x }}</h1>
+    {% endfor %}
+    <p>Fruits array </p>
+
+
+    {% comment "" %}
+   {%for x in members%}
+    <h1>Emp.no : {{ x.empno }} </h1>
+    <h4> {{ x.id }} <br> {{ x.ename }} <br>
+         {% now "d-m-Y h:i:s" %} <hr>
+    </h4>
+   {% endfor %}
+
+   <ul>
+    {% endcomment %}
+   {%for x in emptyobject%}
+   <li>
+    
+    <h1>Emp.no : {{ x.empno }} </h1>
+    <h4> {{ x.id }} {{ x.ename }} 
+         {% now "d-m-Y h:i:s" %} <hr>
+    </h4>
+    </li>
+    {% empty %}
+    <li>No employees message from empty tag</li>
+    
+   {% endfor %}
+
+    </ul>
+
+    <ul>
+        {% for x in fruits %}
+          <li> forloop revcounter0 :{{ forloop.revcounter0 }}</li>
+        {% endfor %}
+      </ul> 
+
+      <ul>
+        {% for x in fruits %}
+          <li>forloop revcounter :{{ forloop.revcounter }}</li>
+        {% endfor %}
+      </ul> 
+      {% include 'footer.html' %} 
+
+      <table border='1'>
+        <tr>
+          <th>ID</th>
+          <th>Emp.no</th>
+          <th>Employee name</th>
+        </tr>
+        {% for x in mymembers %}
+          <tr>
+            <td>{{ x.id }}</td>
+              <td>{{ x.empno }}</td>
+            <td>{{ x.ename }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+</body>
+</html>
